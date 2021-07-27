@@ -1,4 +1,6 @@
 package org.arpit.java2blog.controller;
+import java.io.*;
+import java.util.HashMap;
 import java.util.List;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -8,7 +10,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.arpit.java2blog.model.Movie;
 import org.arpit.java2blog.service.MovieService;
+import org.generator.Controller;
+import org.generator.FileHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +27,18 @@ public class MovieController {
 
     @Autowired
     MovieService movieService;
+
+    @Operation(summary = "Генерация кода")
+    @GetMapping(value = "/generator/code")
+    private String code() {
+        String PROJECT_HOME = "/home/tirex/java/generator/SpringBootH2DatabaseExample-master/";
+        Controller con = new Controller();
+        con.generate(PROJECT_HOME, "controller", "Controller", "Controller");
+        con.generate(PROJECT_HOME, "model", "Model", "");
+        con.generate(PROJECT_HOME, "service", "Service", "Service");
+
+        return "Hello";
+    }
 
     @Operation(summary = "Получение списка сущностей")
     @GetMapping(value = "/movies", produces = "application/json")
