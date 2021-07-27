@@ -1,4 +1,4 @@
-package org.generator;
+package org.generator.helpers;
 import org.springframework.core.io.ClassPathResource;
 import java.io.*;
 import java.util.HashMap;

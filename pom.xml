@@ -9,10 +9,10 @@
 		<version>2.2.6.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>org.arpit.java2blog</groupId>
-	<artifactId>SpringBootH2Example</artifactId>
+	<groupId>org.generator</groupId>
+	<artifactId>SpringBootGeneratorExample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringBootH2Example</name>
+	<name>SpringBootGeneratorExample</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

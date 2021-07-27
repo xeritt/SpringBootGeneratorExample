@@ -1,4 +1,12 @@
 # Getting Started
+Simple Spring Boot code REST API generator. 
+Generate operation: list, add, delete, save and get item by id.
+1. Run GeneratorExampleApplication.
+2. Go to URL http://localhost:8080/swagger-ui.html
+3. Try generate code. Example cfg_file = movie.
+4. Stop application.
+5. Run ExampleApplication.
+6. Go to URL http://localhost:8080/swagger-ui.html
 
 ### Reference Documentation
 For further reference, please consider the following sections:

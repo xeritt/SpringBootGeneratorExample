@@ -1,4 +1,4 @@
-package org.arpit.java2blog;
+package org.examples;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class SpringBootH2ExampleConfiguration {
+public class ExampleConfiguration {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI().components(new Components()).info(new Info().title("SpringBoot H2 hello example service")
