@@ -3,16 +3,19 @@ package org.generator;
 import java.io.*;
 import java.util.HashMap;
 
-abstract public class Base {
-    public void generate(String PROJECT_HOME, String cfg_file, String tmp_file, String dest_file) {
+public class Base {
+    public boolean fInterface = false;
+    public void generate(String PROJECT_HOME, String cfg_file, String path, String tmp_file, String dest_file) {
         String cfg_path = PROJECT_HOME + "generator/cfg/" + cfg_file + ".cfg";//controller;
         String code_path = PROJECT_HOME + "generator/code/" + tmp_file + ".java";//Controller";
         HashMap<String, String> mappings = new HashMap<String, String>();
         mappings = FileHelper.loadConfig(cfg_path, mappings);
 
         String package_path = mappings.get("PACKAGE").replace('.', '/');
-        String dest_path = PROJECT_HOME + "src/main/java/" +package_path+"/"+cfg_file+"/";
+        String dest_path = PROJECT_HOME + "src/main/java/" +package_path+"/"+path+"/";
+
         String file = mappings.get("MODEL")+ dest_file +".java";
+        if (fInterface) file = 'I'+file;
         File fout = new File(dest_path);
         fout.mkdirs();
 

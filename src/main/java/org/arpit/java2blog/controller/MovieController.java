@@ -1,6 +1,4 @@
 package org.arpit.java2blog.controller;
-import java.io.*;
-import java.util.HashMap;
 import java.util.List;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,10 +8,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.arpit.java2blog.model.Movie;
 import org.arpit.java2blog.service.MovieService;
-import org.generator.Controller;
-import org.generator.FileHelper;
+import org.generator.Base;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -32,10 +28,14 @@ public class MovieController {
     @GetMapping(value = "/generator/code")
     private String code() {
         String PROJECT_HOME = "/home/tirex/java/generator/SpringBootH2DatabaseExample-master/";
-        Controller con = new Controller();
-        con.generate(PROJECT_HOME, "controller", "Controller", "Controller");
-        con.generate(PROJECT_HOME, "model", "Model", "");
-        con.generate(PROJECT_HOME, "service", "Service", "Service");
+        Base base = new Base();
+        base.generate(PROJECT_HOME, "movie","controller", "Controller", "Controller");
+        base.generate(PROJECT_HOME, "movie", "model", "Model", "");
+        base.fInterface = true;
+        base.generate(PROJECT_HOME, "movie", "service", "IService", "Service");
+        base.fInterface = false;
+        base.generate(PROJECT_HOME, "movie", "service", "Service", "Service");
+        base.generate(PROJECT_HOME, "movie", "repository", "Repository", "Repository");
 
         return "Hello";
     }

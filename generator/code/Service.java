@@ -24,7 +24,7 @@ public class {MODEL}Service implements I{MODEL}Service {
 
     @Override
     public {MODEL} get{MODEL}ById(int id) {
-        return {MODEL}Repository.findById(id).get();
+        return {VARIBLE}Repository.findById(id).get();
     }
 
     @Override
